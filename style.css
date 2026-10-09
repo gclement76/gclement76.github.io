@@ -1,0 +1,126 @@
+/* =========================================================
+   Variables de couleurs (les mêmes que Trace Course)
+   ========================================================= */
+:root {
+  --fond: #f4f6f8;
+  --carte-fond: #ffffff;
+  --texte: #1f2933;
+  --texte-doux: #616e7c;
+  --accent: #e4572e;
+  --bordure: #d9e2ec;
+  --rayon: 10px;
+}
+
+/* Thème sombre automatique si le système est en mode sombre */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #121417;
+    --carte-fond: #1c1f24;
+    --texte: #e4e7eb;
+    --texte-doux: #9aa5b1;
+    --bordure: #323840;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+}
+
+/* =========================================================
+   En-tête et liste, centrées et limitées en largeur
+   ========================================================= */
+.entete,
+.liste {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.entete {
+  padding-top: 24px;
+  padding-bottom: 8px;
+}
+
+.entete h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.liste {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 24px;
+}
+
+/* =========================================================
+   Carte d'un projet
+   ========================================================= */
+.projet {
+  display: flex;
+  align-items: stretch;
+  background: var(--carte-fond);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  overflow: hidden;
+}
+
+/* Grande zone cliquable qui ouvre le site */
+.projet-lien {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.projet-lien:hover .projet-nom,
+.projet-lien:focus-visible .projet-nom {
+  color: var(--accent);
+}
+
+.projet-icone {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.projet-texte {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.projet-nom {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.projet-description {
+  color: var(--texte-doux);
+  font-size: 0.9rem;
+}
+
+/* Petit lien secondaire vers le dépôt GitHub */
+.projet-code {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-left: 1px solid var(--bordure);
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.projet-code:hover,
+.projet-code:focus-visible {
+  color: var(--accent);
+}
